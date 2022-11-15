@@ -3,10 +3,7 @@ package com.jwt.academic.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -15,4 +12,15 @@ public class Score {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    private Discipline discipline;
+
+    @ManyToOne
+    private Student student;
+
+    private Double score;
+
+    @ManyToOne
+    private Term term;
 }

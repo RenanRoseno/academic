@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +28,8 @@ public class Student {
     private Calendar birthDate;
 
     private String phone;
+
+    @ManyToMany
+    private List<Discipline> disciplines;
+
 }
