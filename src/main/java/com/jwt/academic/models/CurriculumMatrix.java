@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Calendar;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,5 +16,13 @@ public class CurriculumMatrix {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "vigency_date")
+    @Temporal(TemporalType.DATE)
+    private Calendar vigencyDate;
 
+    @ManyToMany
+    private List<Discipline> disciplines;
+
+    @ManyToOne
+    private Course course;
 }

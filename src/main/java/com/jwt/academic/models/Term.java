@@ -9,20 +9,16 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_professores")
-public class Professor {
+@Table(name = "tb_terms")
+public class Term {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String year;
 
-    private String register;
+    private Long stage;
 
-    private String email;
-
-    private String phone;
-
-    @ManyToMany
-    private List<Discipline> disciplines;
+    @OneToMany(mappedBy = "term")
+    private List<Class> classes;
 }
