@@ -1,7 +1,7 @@
-package com.jwt.academic.services;
+package com.tjw.academic.services;
 
-import com.jwt.academic.models.Professor;
-import com.jwt.academic.repositories.ProfessorRepository;
+import com.tjw.academic.models.Professor;
+import com.tjw.academic.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

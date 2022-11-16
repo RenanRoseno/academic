@@ -1,4 +1,4 @@
-package com.jwt.academic.models;
+package com.tjw.academic.models;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.jwt.academic.models;
+package com.tjw.academic.models;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,16 +9,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_terms")
-public class Term {
+@Table(name = "tb_disciplines")
+public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String year;
+    private String name;
 
-    private Long stage;
-
-    @OneToMany(mappedBy = "term")
-    private List<Class> classes;
+    private Long workLoad;
 }

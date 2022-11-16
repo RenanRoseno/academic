@@ -1,9 +1,8 @@
-package com.jwt.academic.controllers;
+package com.tjw.academic.controllers;
 
-import com.jwt.academic.models.Professor;
-import com.jwt.academic.services.ProfessorService;
+import com.tjw.academic.models.Professor;
+import com.tjw.academic.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
