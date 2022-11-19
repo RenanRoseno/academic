@@ -25,7 +25,7 @@ public class ProfessorController {
     }
 
     @PostMapping
-    public Professor save(@RequestBody Professor professor) {
+    public Professor save(@RequestBody Professor professor) throws Exception {
         return professorService.save(professor);
     }
 }

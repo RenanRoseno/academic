@@ -23,6 +23,8 @@ public class Professor {
 
     private String phone;
 
+    private String cpf;
+
     @ManyToMany
     private List<Discipline> disciplines;
 }

@@ -23,6 +23,4 @@ public class Class {
     @ManyToOne
     private Course course;
 
-    @ManyToOne
-    private Term term;
 }

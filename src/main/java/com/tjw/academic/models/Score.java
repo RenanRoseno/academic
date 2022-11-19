@@ -20,7 +20,4 @@ public class Score {
     private Student student;
 
     private Double score;
-
-    @ManyToOne
-    private Term term;
 }
