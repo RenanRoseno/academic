@@ -15,17 +15,27 @@ public class ProfessorController {
     ProfessorService professorService;
 
     @GetMapping
-    public List<Professor> listAll() {
+    List<Professor> listAll() {
         return professorService.listAll();
     }
 
     @GetMapping("{id}")
-    public Optional<Professor> getById(@PathVariable Long id) {
+    Professor getById(@PathVariable Long id) {
         return professorService.getById(id);
     }
 
     @PostMapping
-    public Professor save(@RequestBody Professor professor) throws Exception {
+    Professor save(@RequestBody Professor professor) throws Exception {
         return professorService.save(professor);
+    }
+
+    @PutMapping("{id}")
+    Professor update(@RequestBody Professor professor, @PathVariable Long id) throws Exception {
+        return professorService.update(professor, id);
+    }
+
+    @DeleteMapping("{id}")
+    void delete(@PathVariable Long id){
+        professorService.delete(id);
     }
 }
