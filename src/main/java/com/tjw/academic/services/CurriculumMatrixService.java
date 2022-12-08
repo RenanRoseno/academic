@@ -1,9 +1,7 @@
 package com.tjw.academic.services;
 
 import com.tjw.academic.exception.UserNotFoundException;
-import com.tjw.academic.models.Course;
 import com.tjw.academic.models.CurriculumMatrix;
-import com.tjw.academic.repositories.CourseRepository;
 import com.tjw.academic.repositories.CurriculumMatrixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

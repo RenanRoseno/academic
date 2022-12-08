@@ -1,7 +1,6 @@
 package com.tjw.academic.services;
 
 import com.tjw.academic.exception.UserNotFoundException;
-import com.tjw.academic.models.CurriculumMatrix;
 import com.tjw.academic.models.Score;
 import com.tjw.academic.repositories.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;

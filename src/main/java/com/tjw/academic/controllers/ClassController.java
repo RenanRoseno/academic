@@ -1,9 +1,7 @@
 package com.tjw.academic.controllers;
 
 import com.tjw.academic.models.Class;
-import com.tjw.academic.models.Professor;
 import com.tjw.academic.services.ClassService;
-import com.tjw.academic.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

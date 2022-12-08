@@ -1,9 +1,7 @@
 package com.tjw.academic.services;
 
 import com.tjw.academic.exception.UserNotFoundException;
-import com.tjw.academic.models.Score;
 import com.tjw.academic.models.Student;
-import com.tjw.academic.repositories.ScoreRepository;
 import com.tjw.academic.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
