@@ -17,5 +17,7 @@ public class Discipline {
 
     private String name;
 
+    private String abbreviation;
+
     private Long workLoad;
 }

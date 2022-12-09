@@ -23,12 +23,12 @@ public class DisciplineService {
     }
 
     public Discipline save(Discipline discipline) throws Exception {
-        //this.validateExistingProfessor(professor);
+        this.validateExistingDiscipline(discipline);
         return disciplineRepository.save(discipline);
     }
 
     public Discipline update(Discipline disciplineUpdated, Long id) throws Exception {
-        //this.validateExistingProfessor(updatedProfessor);
+        this.validateExistingDiscipline(disciplineUpdated);
         return this.disciplineRepository.findById(id)
                 .map(disciplineDB -> {
                     disciplineDB = disciplineUpdated;
@@ -42,5 +42,15 @@ public class DisciplineService {
             throw new UserNotFoundException(id);
         }
         disciplineRepository.deleteById(id);
+    }
+
+    private void validateExistingDiscipline(Discipline discipline) throws Exception {
+        Long idDiscipline = discipline.getId();
+
+        if (idDiscipline != null && this.disciplineRepository.findByNameId(discipline.getName(), idDiscipline).size() > 0) {
+            throw new Exception("Disciplina já cadastrada.");
+        } else if (this.disciplineRepository.findByName(discipline.getName()).size() > 0){
+            throw new Exception("Disciplina já cadastrada.");
+        }
     }
 }

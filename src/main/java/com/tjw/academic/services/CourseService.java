@@ -15,7 +15,12 @@ public class CourseService {
     CourseRepository courseRepository;
 
     public List<Course> listAll() {
-        return courseRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        List<Course> courses = courseRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        courses.forEach(course -> {
+            String kindCourseDesc = this.getKindCourse(course.getKindCourse());
+            course.setKindCourseDescription(kindCourseDesc);
+        });
+        return courses;
     }
 
     public Course getById(Long id) throws Exception {
@@ -42,5 +47,14 @@ public class CourseService {
             throw new UserNotFoundException(id);
         }
         courseRepository.deleteById(id);
+    }
+
+    private String getKindCourse(Long kindCourse) {
+        return switch (kindCourse.intValue()) {
+            case 1 -> "BACHARELADO";
+            case 2 -> "LICENCIATURA";
+            case 3 -> "TÉCNICO";
+            default -> "";
+        };
     }
 }

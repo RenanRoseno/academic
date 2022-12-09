@@ -1,5 +1,6 @@
 package com.tjw.academic.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +24,10 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<Class> classes;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "course")
     private List<CurriculumMatrix> curriculumMatrices;
+
+    @Transient
+    private String kindCourseDescription;
 }
