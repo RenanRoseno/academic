@@ -2,14 +2,12 @@ package com.tjw.academic.services;
 
 import com.tjw.academic.exception.UserNotFoundException;
 import com.tjw.academic.models.CurriculumMatrix;
-import com.tjw.academic.models.Professor;
 import com.tjw.academic.repositories.CurriculumMatrixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -42,7 +40,6 @@ public class CurriculumMatrixService {
     }
 
     public CurriculumMatrix update(CurriculumMatrix updatedCurriculumMatr, Long id) throws Exception {
-        //this.validateExistingProfessor(updatedProfessor);
         return this.curriculumMatrixRepository.findById(id)
                 .map(curriculumMatrixDB -> {
                     curriculumMatrixDB = updatedCurriculumMatr;

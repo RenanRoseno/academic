@@ -23,12 +23,10 @@ public class ScoreService {
     }
 
     public Score save(Score score) throws Exception {
-        //this.validateExistingProfessor(professor);
         return scoreRepository.save(score);
     }
 
     public Score update(Score updatedScore, Long id) throws Exception {
-        //this.validateExistingProfessor(updatedProfessor);
         return this.scoreRepository.findById(id)
                 .map(scoreDB -> {
                     scoreDB = updatedScore;

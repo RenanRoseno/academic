@@ -28,12 +28,10 @@ public class CourseService {
     }
 
     public Course save(Course course) throws Exception {
-        //this.validateExistingProfessor(professor);
         return courseRepository.save(course);
     }
 
     public Course update(Course updatedCourse, Long id) throws Exception {
-        //this.validateExistingProfessor(updatedProfessor);
         return this.courseRepository.findById(id)
                 .map(courseDB -> {
                     courseDB = updatedCourse;
