@@ -23,12 +23,12 @@ public class StudentService {
     }
 
     public Student save(Student student) throws Exception {
-        //this.validateExistingProfessor(professor);
+        this.validateExistingStudent(student);
         return studentRepository.save(student);
     }
 
     public Student update(Student updatedStudent, Long id) throws Exception {
-        //this.validateExistingProfessor(updatedProfessor);
+        this.validateExistingStudent(updatedStudent);
         return this.studentRepository.findById(id)
                 .map(studentDB -> {
                     studentDB = updatedStudent;
@@ -42,5 +42,15 @@ public class StudentService {
             throw new UserNotFoundException(id);
         }
         studentRepository.deleteById(id);
+    }
+
+    private void validateExistingStudent(Student student) throws Exception {
+        Long id = student.getId();
+
+        if(id != null && this.studentRepository.findByRegisterId(student.getStudentRegister(), id).size() > 0){
+            throw new Exception("Aluno com esta matricula já foi cadastrado.");
+        } else if (this.studentRepository.findByRegister(student.getStudentRegister()).size() > 0){
+            throw new Exception("Aluno com esta matricula já foi cadastrado.");
+        }
     }
 }

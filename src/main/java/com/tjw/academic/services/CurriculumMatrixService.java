@@ -2,11 +2,14 @@ package com.tjw.academic.services;
 
 import com.tjw.academic.exception.UserNotFoundException;
 import com.tjw.academic.models.CurriculumMatrix;
+import com.tjw.academic.models.Professor;
 import com.tjw.academic.repositories.CurriculumMatrixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,7 +18,19 @@ public class CurriculumMatrixService {
     CurriculumMatrixRepository curriculumMatrixRepository;
 
     public List<CurriculumMatrix> listAll() {
-        return curriculumMatrixRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        List<CurriculumMatrix> curriculumMatrices = curriculumMatrixRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        ;
+        curriculumMatrices.forEach(curriculumMatrix -> {
+            curriculumMatrix.setCourseDesc(curriculumMatrix.getCourse().getName());
+
+            SimpleDateFormat formattedDate
+                    = new SimpleDateFormat("dd/MM/yyyy");
+            String dateFormatted
+                    = formattedDate.format(
+                    curriculumMatrix.getVigencyDate().getTime());
+            curriculumMatrix.setDateDesc(dateFormatted);
+        });
+        return curriculumMatrices;
     }
 
     public CurriculumMatrix getById(Long id) throws Exception {
@@ -23,7 +38,6 @@ public class CurriculumMatrixService {
     }
 
     public CurriculumMatrix save(CurriculumMatrix curriculumMatrix) throws Exception {
-        //this.validateExistingProfessor(professor);
         return curriculumMatrixRepository.save(curriculumMatrix);
     }
 
@@ -43,4 +57,5 @@ public class CurriculumMatrixService {
         }
         curriculumMatrixRepository.deleteById(id);
     }
+
 }

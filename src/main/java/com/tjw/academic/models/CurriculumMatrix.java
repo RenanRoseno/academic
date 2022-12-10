@@ -25,4 +25,10 @@ public class CurriculumMatrix {
 
     @ManyToOne
     private Course course;
+
+    @Transient
+    private String courseDesc;
+
+    @Transient
+    private String dateDesc;
 }

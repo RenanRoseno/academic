@@ -23,4 +23,7 @@ public class Class {
     @ManyToOne
     private Course course;
 
+    @Transient
+    private String courseDesc;
+
 }

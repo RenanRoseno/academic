@@ -1,6 +1,7 @@
 package com.tjw.academic.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "tb_couses")
+@JsonIgnoreProperties("classes")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

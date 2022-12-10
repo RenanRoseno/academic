@@ -15,7 +15,9 @@ public class ClassService {
     ClassRepository classRepository;
 
     public List<Class> listAll() {
-        return classRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        List<Class> result = classRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        result.forEach(classroom -> classroom.setCourseDesc(classroom.getCourse().getName()));
+        return result;
     }
 
     public Class getById(Long id) throws Exception {
@@ -23,12 +25,10 @@ public class ClassService {
     }
 
     public Class save(Class classSave) throws Exception {
-        //this.validateExistingProfessor(professor);
         return classRepository.save(classSave);
     }
 
     public Class update(Class updatedClass, Long id) throws Exception {
-        //this.validateExistingProfessor(updatedProfessor);
         return this.classRepository.findById(id)
                 .map(classBd -> {
                     classBd = updatedClass;
